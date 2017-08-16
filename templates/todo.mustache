@@ -12,23 +12,28 @@
     <input type="submit" value="Add todo!">
   </form>
   <section>
-    <h3>Things todo</h3>
-    <ul>
-      {{#todo}}
+
+      <h3>Things todo!</h3>
+      <ul>
+        {{#todo}}
+        {{^complited}}
         <form action="/removeitem" method="post">
           <li>
             <button type="submit" formaction="/removeitem" formmethod="post" name="delButt">Mark compleated</button>
-            <input type="hidden" name="delThis" value="{{.}}"> {{.}}
+            <input type="hidden" name="delThis" value="{{text}}"> {{text}}
           </li>
         </form>
-      {{/todo}}
-    </ul>
-    <h3>Completed tasks</h3>
-    <ul>
-      {{#compleated}}
-        <li><del>{{.}}</del></li>
-      {{/compleated}}
-    </ul>
+        {{/complited}}
+            {{/todo}}
+      </ul>
+      <h3>complited tasks</h3>
+      <ul>
+        {{#todo}}
+        {{#complited}}
+          <li><del>{{text}}</del></li>
+        {{/complited}}
+          {{/todo}}
+      </ul>
   </section>
 </body>
 

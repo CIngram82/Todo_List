@@ -12,31 +12,29 @@ app.use(bodyparser.urlencoded({
   extended: false
 }));
 
-const todoList = [
-  "add all the things!",
-  "set up git for this",
-  "set up npm and other stuff",
-  "call your mom",
-];
+let todos;
 
-const compleatedItems = [
-  "called dad",
-  "played video games"
-]
+jsonfile.readFile('templates/data.json', function (error, obj) {
+  todos = obj;
+});
+
 app.get('/', function(req, res) {
   res.render('todo', {
-    todo: todoList,
-    compleated: compleatedItems,
+    todo: todos,
   });
 });
 app.post("/additem", function(req, res) {
-  todoList.push(req.body.todoItem);
-  console.log(req.body.todoItem)
+  // Add item to the json file
+
+console.log(res.todoItem);
+  // jsonfile.writeFile(file, obj, {flag: 'a'}, function (err) {
+  // console.error(err)
+// })
   res.redirect('/');
 });
 app.post("/removeitem", function(req, res) {
-  compleatedItems.push(req.body.delThis);
-  todoList.splice(todoList.indexOf(req.body.delThis), 1);
+// find item in json file and change complited to true
+
   res.redirect('/');
 });
 

@@ -1,0 +1,26 @@
+[
+   {
+      "text":"add all the things!",
+      "complited":false
+   },
+   {
+      "text":"set up git for this",
+      "complited":false
+   },
+   {
+      "text":"set up npm and other stuff",
+      "complited":false
+   },
+   {
+      "text":"call your mom",
+      "complited":false
+   },
+   {
+      "text":"call dad",
+      "complited":true
+   },
+   {
+      "text":"played video games",
+      "complited":true
+   }
+]
