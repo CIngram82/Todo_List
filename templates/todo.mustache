@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Rocking Todo List!</title>
+</head>
+
+<body>
+  <form action="/additem" method="post">
+    <input type="text" name="todoItem" placeholder="Add a todo...">
+    <input type="submit" value="Add todo!">
+  </form>
+  <section>
+    <h3>Things todo</h3>
+    <ul>
+      {{#todo}}
+        <form action="/removeitem" method="post">
+          <li>
+            <button type="submit" formaction="/removeitem" formmethod="post" name="delButt">Mark compleated</button>
+            <input type="hidden" name="delThis" value="{{.}}"> {{.}}
+          </li>
+        </form>
+      {{/todo}}
+    </ul>
+    <h3>Completed tasks</h3>
+    <ul>
+      {{#compleated}}
+        <li><del>{{.}}</del></li>
+      {{/compleated}}
+    </ul>
+  </section>
+</body>
+
+</html>
+
+<!-- Consider a way to persist your data permanently so
+that you can stop and start your app without losing your
+todos. jsonfile is one option. -->
