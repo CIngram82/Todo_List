@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 app.post("/additem", function(req, res) {
   // Add item to the json file
 
-console.log(res.todoItem);
+console.log(res.body.todoItem);
   // jsonfile.writeFile(file, obj, {flag: 'a'}, function (err) {
   // console.error(err)
 // })
